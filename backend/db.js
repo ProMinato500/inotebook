@@ -1,17 +1,11 @@
 const mongoose = require('mongoose');
 
-const mongoURI = "mongodb://0.0.0.0:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+const mongoURI = "mongodb://0.0.0.0:27017/inotebook?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
 
-    const connectToMongo = ()=>{
-        mongoose.connect(mongoURI).then(() => {
-            console.log("Connected to MongoDB successfully :)");
-        }).catch((e) => {
-            console.log("Error while attempting to connect to MongoDB");
-            console.log(e);
-        });
+const connectToMongo = ()=>{
+    mongoose.connect(mongoURI, ()=>{
+        console.log("Connected to Mongo Successfully");
+    })
 }
-
-
-
 
 module.exports = connectToMongo;
